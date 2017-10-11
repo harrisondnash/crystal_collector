@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Crystal Guessing Game</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Catamaran" rel="stylesheet">
+
+</head>
+<header>
+
+  <div class="jumbotron">
+    <h1>Crystal Collector</h1>
+    <p>
+      <div>
+        Try and match the randomly generated number by clicking on the crystals.
+      </div>
+
+      <div>
+        Each crystal clicked will add a specific number of points to your score.
+      </div>
+
+      <div>
+        The crystal's point values are not known until selected.
+      </div>
+
+      <div>
+        To win, the sum of your points must equal the random number.
+      </div>
+
+      <div>
+        If your total points surpass the random number, you lose.
+      </div>
+    </p>
+
+  </div>
+
+</header>
+
+<body>
+
+  <p>
+  <a><input type="button" id="reset" class="btn btn-default btn-lg" style=" cursor:pointer; font-size:20px;" value="Start / Reset"></a>
+  </p>
+
+  <p><span id="number"></span></p>
+
+  <div id="numberToGuess">
+    <h3>66</h3></div>
+
+  <p><span id="yourNumber"></span></p>
+
+  <div id="crystals">
+  </div>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var numberToGuess = 66;
+      var counter = 0;
+      var number1 = [19];
+      var number2 = [35];
+      var number3 = [5];
+      var number4 = [7];
+      $('number1 number2 number3 number4').text(numberToGuess);
+      for (var i = 0; i < number1.length; i++) {
+        var imageCrystal1 = $('<img>');
+
+        imageCrystal1.attr('data-num', number1[i]);
+        imageCrystal1.attr('src', 'https://cdn3.iconfinder.com/data/icons/rocks-stones-and-crystals/100/11-512.png');
+        imageCrystal1.attr('alt', 'crystal1');
+        imageCrystal1.addClass('crystalvector');
+        $('#crystals').append(imageCrystal1);
+      }
+
+      for (var i = 0; i < number2.length; i++) {
+        var imageCrystal2 = $('<img>');
+
+        imageCrystal2.attr('data-num', number2[i]);
+        imageCrystal2.attr('src', 'https://cdn3.iconfinder.com/data/icons/rocks-stones-and-crystals/100/12-512.png');
+        imageCrystal2.attr('alt', 'crystal2');
+        imageCrystal2.addClass('crystalvector');
+        $('#crystals').append(imageCrystal2);
+      }
+
+
+      for (var i = 0; i < number3.length; i++) {
+        var imageCrystal3 = $('<img>');
+
+        imageCrystal3.attr('data-num', number3[i]);
+        imageCrystal3.attr('src', 'https://cdn3.iconfinder.com/data/icons/rocks-stones-and-crystals/100/16-512.png');
+        imageCrystal3.attr('alt', 'crystal3');
+        imageCrystal3.addClass('crystalvector');
+        $('#crystals').append(imageCrystal3);
+      }
+
+      for (var i = 0; i < number4.length; i++) {
+        var imageCrystal4 = $('<img>');
+
+        imageCrystal4.attr('data-num', number4[i]);
+        imageCrystal4.attr('src', 'https://cdn1.iconfinder.com/data/icons/diamonds-set/100/brilliance3-01-512.png');
+        imageCrystal4.attr('alt', 'crystal4');
+        imageCrystal4.addClass('crystalvector');
+        $('#crystals').append(imageCrystal4);
+      }
+
+      $('#reset').on('click', function() {
+        reset();
+      });
+
+      function reset() {
+        console.log("made it");
+        counter = 0;
+        $('#yourNumber').text(counter);
+
+        number1 = [5];
+        number2 = [23];
+        number3 = [21];
+        number4 = [9];
+        $('number1 number2 number3 number4').text(numberToGuess);
+        console.log('Is it working');
+      };
+
+      $('.crystalvector').on('click', function() {
+        counter = counter + parseInt($(this).data('num'));
+
+        $('#yourNumber').text(counter);
+        if (counter == numberToGuess) {
+          alert('Nice. You won.');
+          reset();
+          console.log("try it");
+        } else if (counter > numberToGuess) {
+          alert('Dang. You lost.');
+          reset();
+        }
+      });
+
+    });
+  </script>
+</body>
+
+</html>

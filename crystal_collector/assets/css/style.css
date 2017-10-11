@@ -1,0 +1,45 @@
+body {
+  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/hip-square.png");
+}
+
+.jumbotron {
+  height: 280px;
+  background-color: rgba(0,0,0,0.0);
+  font-size: 30px;
+  font-style: bold;
+}
+
+.crystalvector {
+  width: 200px;
+  height: 200px;
+}
+
+
+h1 {
+  text-align: center;
+  font-family: "Catamaran", sans-serif;
+}
+
+p {
+  text-align: center;
+  font-family: "Catamaran", sans-serif;
+  font-size: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-family: "Catamaran", sans-serif;
+  font-size: 20px;
+}
+
+div {
+  text-align: center;
+  font-family: "Catamaran", sans-serif;
+  font-size: 20px;
+}
+
+h3 {
+  text-align: center;
+  font-family: "Catamaran", sans-serif;
+  font-size: 20px;
+}
